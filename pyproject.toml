@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "actium"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "simplellmfunc==0.4.1",
+    "ipython>=8.0.0",
+    "pyyaml>=6.0",
+    "click>=8.3.1",
+    "seaborn>=0.13.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-asyncio>=1.3.0",
+    "click>=8.0.0",
+    "types-pyyaml>=6.0.12.20250915",
+]
+
+[tool.setuptools.packages.find]
+include = ["actium*"]
+
+[project.scripts]
+actium-skills = "actium.skills.cli:skills_cli"

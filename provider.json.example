@@ -1,0 +1,45 @@
+{
+  "openai": [
+    {
+      "model_name": "gpt-3.5-turbo",
+      "api_keys": ["sk-your-openai-api-key-here"],
+      "base_url": "https://api.openai.com/v1",
+      "max_retries": 5,
+      "retry_delay": 1.0,
+      "rate_limit_capacity": 20,
+      "rate_limit_refill_rate": 3.0
+    },
+    {
+      "model_name": "gpt-4",
+      "api_keys": ["sk-your-openai-api-key-here"],
+      "base_url": "https://api.openai.com/v1",
+      "max_retries": 5,
+      "retry_delay": 1.0,
+      "rate_limit_capacity": 10,
+      "rate_limit_refill_rate": 1.0
+    }
+  ],
+  "deepseek": [
+    {
+      "model_name": "v3-turbo",
+      "api_keys": ["your-deepseek-api-key-here"],
+      "base_url": "https://api.deepseek.com/v1",
+      "max_retries": 5,
+      "retry_delay": 1.0,
+      "rate_limit_capacity": 15,
+      "rate_limit_refill_rate": 2.0
+    }
+  ],
+  "anthropic": [
+    {
+      "model_name": "claude-3-sonnet",
+      "api_keys": ["your-anthropic-api-key-here"],
+      "base_url": "https://api.anthropic.com/v1",
+      "max_retries": 5,
+      "retry_delay": 1.0,
+      "rate_limit_capacity": 10,
+      "rate_limit_refill_rate": 1.0
+    }
+  ]
+}
+
