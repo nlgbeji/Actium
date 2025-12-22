@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any, List, Dict
 
 from actium.agent import agent
+from actium.utils.print import print_chunk, reset_accumulator, finish_accumulator
 
 # 获取当前文件所在目录
 _current_dir = Path(__file__).parent.resolve()
@@ -17,7 +18,7 @@ PROVIDER_CONFIG = _current_dir / "provider.json"
 
 
 @agent(
-    model="openrouter/anthropic/claude-sonnet-4.5",
+    model="openrouter/google/gemini-3-flash-preview",
     sandbox_dir=str(SANDBOX_DIR),
     skills_dir=str(SKILLS_DIR),
     max_steps=30,
@@ -48,16 +49,6 @@ async def data_analyst_agent(task: str):
     你可以通过 shell 命令探索文件系统以及查看 skills 文档，使用 Python 代码进行数据分析。
     """
     pass
-
-
-def _print_stream_chunk(chunk: Any) -> None:
-    """打印流式 chunk 中的文本增量"""
-    if hasattr(chunk, "choices") and chunk.choices:
-        choice = chunk.choices[0]
-        if hasattr(choice, "delta") and choice.delta:
-            delta = choice.delta
-            if getattr(delta, "content", None):
-                print(delta.content, end="", flush=True)
 
 
 async def run_interactive_cli() -> None:
@@ -91,10 +82,16 @@ async def run_interactive_cli() -> None:
             # 显示助手回复前缀
             print("助手: ", end="", flush=True)
             
+            # 重置工具调用累积器（新对话开始）
+            reset_accumulator()
+            
             # 调用 Agent 并流式展示回复
             async for raw_response, updated_history in data_analyst_agent(user_input):
-                _print_stream_chunk(raw_response)
+                print_chunk(raw_response)
                 history = updated_history
+            
+            # 检查是否有未完成的工具调用（流结束时）
+            finish_accumulator()
             
             # 换行
             print()
