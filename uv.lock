@@ -28,7 +28,7 @@ requires-dist = [
     { name = "ipython", specifier = ">=8.0.0" },
     { name = "pyyaml", specifier = ">=6.0" },
     { name = "seaborn", specifier = ">=0.13.2" },
-    { name = "simplellmfunc", specifier = "==0.4.1" },
+    { name = "simplellmfunc", specifier = "==0.4.2" },
 ]
 
 [package.metadata.requires-dev]
@@ -1184,7 +1184,7 @@ wheels = [
 
 [[package]]
 name = "simplellmfunc"
-version = "0.4.1"
+version = "0.4.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx", extra = ["socks"] },
@@ -1196,9 +1196,9 @@ dependencies = [
     { name = "rich" },
     { name = "tqdm" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/1e/0a/6fece186f5fb5c346003339fe21d3e63c08c69a5faad57d47f43a8b16374/simplellmfunc-0.4.1.tar.gz", hash = "sha256:92841da6987bf040ec73c38393ba1086c5c52652200dd73d3f7e83dff5d40601", size = 76616, upload-time = "2025-12-11T09:09:32.223Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/13/e3/25e7e113120c10dee624d638e3825b22613ade65281a2b3bb505131cdb86/simplellmfunc-0.4.2.tar.gz", hash = "sha256:89a4963c03087a23b7ebca5dc4ad89a6dff704bd9415b77040ecd8adf3fe855e", size = 76383, upload-time = "2025-12-23T18:25:08.366Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fe/01/53c402c474b57dbdf52d819bac05aa2e20ede80846193b7b8c3a9b44e418/simplellmfunc-0.4.1-py3-none-any.whl", hash = "sha256:03e9a1cccda880f471688b258a46b9595c66719916a267a9cf6d2704a6c8c940", size = 95746, upload-time = "2025-12-11T09:09:31.054Z" },
+    { url = "https://files.pythonhosted.org/packages/88/30/fde45d06bcfe6f5d21e6cdb3bb08bad20d78b3c19283c15684c70b78b896/simplellmfunc-0.4.2-py3-none-any.whl", hash = "sha256:651723c419241b299d4923526e36f57a263c6827a2fa5b4bf7f845a2ff440eb2", size = 95564, upload-time = "2025-12-23T18:25:07.1Z" },
 ]
 
 [[package]]

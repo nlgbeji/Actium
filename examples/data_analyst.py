@@ -3,10 +3,11 @@
 import asyncio
 import sys
 from pathlib import Path
-from typing import Any, List, Dict
+from typing import Any, List, Dict, Optional
 
 from actium.agent import agent
-from actium.utils.print import print_chunk, reset_accumulator, finish_accumulator
+from actium.utils.print import builtin_cli_print
+from SimpleLLMFunc.type.decorator import HistoryList
 
 # 获取当前文件所在目录
 _current_dir = Path(__file__).parent.resolve()
@@ -26,7 +27,7 @@ PROVIDER_CONFIG = _current_dir / "provider.json"
     stream=True,
     provider_config_path=str(PROVIDER_CONFIG),
 )
-async def data_analyst_agent(task: str):
+async def data_analyst_agent(task: str, history: Optional[HistoryList] = None):
     """
     你是一位专业的数据分析师，擅长使用 Python 进行数据分析和可视化。
     
@@ -82,16 +83,8 @@ async def run_interactive_cli() -> None:
             # 显示助手回复前缀
             print("助手: ", end="", flush=True)
             
-            # 重置工具调用累积器（新对话开始）
-            reset_accumulator()
-            
-            # 调用 Agent 并流式展示回复
-            async for raw_response, updated_history in data_analyst_agent(user_input):
-                print_chunk(raw_response)
-                history = updated_history
-            
-            # 检查是否有未完成的工具调用（流结束时）
-            finish_accumulator()
+            # 调用 Agent 并流式展示回复（传入 history 以保持上下文）
+            history = await builtin_cli_print(data_analyst_agent(user_input, history=history))  # type: ignore[call-arg]
             
             # 换行
             print()

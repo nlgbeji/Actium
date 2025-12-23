@@ -29,8 +29,10 @@ class SkillValidator:
         """
         if not (1 <= len(name) <= 64):
             return False
-        if not re.match(r'^[a-z0-9]([a-z0-9-]*[a-z0-9])?$', name):
+        # 允许大小写字母、数字、连字符、下划线
+        if not re.match(r'^[a-zA-Z0-9_-]+$', name):
             return False
+        # 不允许连续的两个连字符（避免混淆）
         if '--' in name:
             return False
         return True

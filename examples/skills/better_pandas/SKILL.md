@@ -1,5 +1,5 @@
 ---
-description: A set of functions to help you quickly operate pandas DataFrame
+description: A set of functions to help you quickly operate pandas DataFrame, detailed docs or reference could be found in references/ folder under ./skills/better-pandas
 name: better-pandas
 license: MIT
 compatibility: python>=3.8
@@ -56,27 +56,7 @@ compatibility: python>=3.8
 
 - `filter_dataframe()`: 根据条件过滤 DataFrame
 
-## 使用示例
-
-```python
-from better_pandas import load_dataframe, explore_dataframe, clean_dataframe
-
-# 加载数据
-df = load_dataframe('data.csv')
-
-# 探索数据
-info = explore_dataframe(df)
-print(f"数据形状: {info['shape']}")
-print(f"缺失值: {info['missing_values']}")
-
-# 清理数据
-df_clean = clean_dataframe(df, drop_duplicates=True, fill_method='mean')
-
-# 保存清理后的数据
-save_dataframe(df_clean, 'data_clean.csv')
-```
-
 ## 详细文档
 
-每个函数的详细文档和使用示例请查看 `docs/` 目录下自动生成的文档文件。
+每个函数的详细文档和使用示例请查看 `references/` 目录下自动生成的文档文件。
 

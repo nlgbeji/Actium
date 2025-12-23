@@ -41,25 +41,39 @@ class ShellSession:
             }
         """
         try:
-            # 使用 shlex.split 安全地分割命令
-            command_parts = shlex.split(command)
-            if not command_parts:
-                return ShellExecutionResult(
-                    success=False,
-                    stdout="",
-                    stderr="",
-                    returncode=-1,
-                    error="Empty command"
-                )
+            # 检测是否包含 shell 操作符（&&, ||, |, >, <, ;, & 等）
+            shell_operators = ['&&', '||', '|', '>', '<', ';', '&', '$', '`']
+            needs_shell = any(op in command for op in shell_operators)
             
-            # 异步执行 subprocess
-            process = await asyncio.create_subprocess_exec(
-                *command_parts,
-                stdout=asyncio.subprocess.PIPE,
-                stderr=asyncio.subprocess.PIPE,
-                cwd=str(self.working_dir),
-                shell=False  # 安全考虑
-            )
+            if needs_shell:
+                # 包含 shell 操作符，使用 shell=True 执行
+                process = await asyncio.create_subprocess_shell(
+                    command,
+                    stdout=asyncio.subprocess.PIPE,
+                    stderr=asyncio.subprocess.PIPE,
+                    cwd=str(self.working_dir),
+                    shell=True
+                )
+            else:
+                # 不包含 shell 操作符，使用 shlex.split 安全地分割命令
+                command_parts = shlex.split(command)
+                if not command_parts:
+                    return ShellExecutionResult(
+                        success=False,
+                        stdout="",
+                        stderr="",
+                        returncode=-1,
+                        error="Empty command"
+                    )
+                
+                # 异步执行 subprocess
+                process = await asyncio.create_subprocess_exec(
+                    *command_parts,
+                    stdout=asyncio.subprocess.PIPE,
+                    stderr=asyncio.subprocess.PIPE,
+                    cwd=str(self.working_dir),
+                    shell=False  # 安全考虑
+                )
             
             try:
                 stdout, stderr = await asyncio.wait_for(

@@ -356,6 +356,28 @@ Agents return `AsyncGenerator[Tuple[Any, HistoryList], None]`:
 # Agent completes all work internally
 ```
 
+### Context Management
+
+Agents support conversation history to maintain context across multiple calls:
+
+```python
+from typing import List, Dict, Any
+
+history: List[Dict[str, Any]] = []
+
+# First call
+async for _, updated_history in my_agent("Analyze this data"):
+    pass
+history = updated_history
+
+# Second call with context
+async for _, updated_history in my_agent("What did we find?", history=history):
+    pass
+history = updated_history
+```
+
+If `history` is not provided, each call starts with a fresh context.
+
 ## 🎓 Design Philosophy
 
 ### 1. Agent As Function
